@@ -213,3 +213,33 @@
                 (memo r `(a b tofu d tofu e) `(tofu d tofu e)))
               (list `tofu))
   )
+
+
+
+(def surpriseo
+  (fn [s]
+    (rembero s '(a b c) '(a b c))))
+(def my-surpriseo
+  (fn [s]
+          (my-rembero s '(a b c) '(a b c))))
+
+(run* (r)
+  (== 'd r)
+  (my-surpriseo r))
+(run* (r)
+  (my-surpriseo r))
+(run* (r)
+  (== 'b r)
+  (my-surpriseo r))
+(run* (r)
+  (surpriseo r))
+(run* (r)
+  (== 'b r)
+  (surpriseo r))
+(run* (r)
+  (== 'd r)
+  (surpriseo r))
+(run* [r]
+  (rembero 'd '(a b c) '(a b c)))
+(run* [r]
+  (rembero 'a '(a b c) '(b c)))
